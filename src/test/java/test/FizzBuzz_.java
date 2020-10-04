@@ -13,7 +13,7 @@ public class FizzBuzz_ {
 
     private class FizzBuzz {
         public String get(int number){
-            return null; //Esto no funciona
+            return null; //Esto no funciona perfecto
         }
     }
 }
