@@ -21,19 +21,40 @@ public class FizzBuzz_ {
     }
 
     @Test
-    public void should_return_fizz_when_it_is_3(){
+    public void should_return_fizz_when_it_is_multiple_of_3(){
         assertThat(fizzBuzz.of(3)).isEqualTo("Fizz");
     }
 
     @Test
-    public void should_return_fizz_when_it_is_5(){
+    public void should_return_fizz_when_it_is_multiple_of_5(){
         assertThat(fizzBuzz.of(5)).isEqualTo("Buzz");
+    }
+
+    @Test
+    public void should_return_fizz_when_it_is_multiple_of_15(){
+        assertThat(fizzBuzz.of(15)).isEqualTo("FizzBuzz");
+        assertThat(fizzBuzz.of(30)).isEqualTo("FizzBuzz");
     }
 
     public class FizzBuzz {
         public String of(int number){
-            if(number == 5) return "Buzz";
-            return number == 3 ? "Fizz" : String.valueOf(number);
+            if(isMultipleOfFifteen(number)) return "FizzBuzz";
+            if(isMultipleOfFive(number)) return "Buzz";
+            if (isMultipleOfThree(number)) return "Fizz";
+            return String.valueOf(number);
+
+        }
+
+        private boolean isMultipleOfThree(int number) {
+            return number % 3 == 0;
+        }
+
+        private boolean isMultipleOfFive(int number) {
+            return number % 5 == 0;
+        }
+
+        private boolean isMultipleOfFifteen(int number) {
+            return number % 15 == 0;
         }
     }
 }
